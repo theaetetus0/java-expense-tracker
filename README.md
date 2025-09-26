@@ -32,8 +32,16 @@ An application that simplifies this process would be quite usefull.
 **Why is this project of interest to you?**
 
 I am in the process of learning how to properly budget my money every month and certainly,
-it can be quite daunting to encapsulate all your information into comprehensible chunks at once.
+it can be quite daunting to encapsulate your monthly expenditure into comprehensible chunks all at once.
 I thought that creating an application to simplify the budgeting and finance management process for me
 would not only be interting, but also rather usefull.
 
 
+## User Stories
+
+As a user, I want to be able to track my income against my expenditure each month.
+As a user, I want to be able to add, remove, and update new or existing expenses in my list of expense categories.
+As a user, I want to be to view the list of expenses in each expense category.
+As a user, I want to be able to see the number of expenses that I have.
+As a user, I want to be able to flag or highlight my problematic expenses.
+As a user, I want to be able to visualize my monthly expenditure into bite sized graphs.
