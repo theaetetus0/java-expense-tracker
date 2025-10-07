@@ -1,4 +1,6 @@
 package ui;
+
+import model.ExpenseCategory;
 import model.Expense;
 
 // An expense tracker application that allows user to add expenses
