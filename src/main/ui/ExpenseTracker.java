@@ -289,13 +289,21 @@ public class ExpenseTracker {
     }
 
     // EFFECTS: prints total number of expenses
-    public void viewNumberOfExpenses(String name){
-        // stub;
+    public void viewNumberOfExpenses(){
+        int total = 0;
+        for(Expense expense : expenseList.getListOfExpenses()) {
+            total++;
+        }
+        System.out.println("You have " + total + " total expenses.");
     }
 
-    // EFFECTS: prints total number of expenses
-    public void viewTotalCostOfExpenses(String name){
-        // stub
+    // EFFECTS: prints total cost of expenses
+    public void viewTotalCostOfExpenses(){
+        int totalCost = 0;
+        for(Expense expense : expenseList.getListOfExpenses()) {
+            totalCost += expense.getCost();
+        }
+        System.out.println("The total cost of expenses is $" + totalCost + "");
     }  
 
     // EFFECTS: returns index of expense in expenseList with a specific name
