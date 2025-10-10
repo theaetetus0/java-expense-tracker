@@ -9,18 +9,23 @@ public class ExpenseCategory {
     // EFFECTS: constructs new expense categories and adds it to listOfExpenses
     public ExpenseCategory() {
         listOfExpenses = new ArrayList<Expense>();
-        // stub
     }
 
     // MODIFIES: this
     // EFFECTS: adds new expense category to listOfExpenses
     public void addExpense(Expense expense) {
-        // stub
+        listOfExpenses.add(expense);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: removes new expense category to listOfExpenses
+    public void removeExpense(Expense expense) {
+        listOfExpenses.remove(expense);
     }
 
     // EFFECTS: returns listOfExpenseCategories
     public ArrayList<Expense> getListOfExpenses() {
-        return null; // stub
+        return listOfExpenses;
     }
 
 }

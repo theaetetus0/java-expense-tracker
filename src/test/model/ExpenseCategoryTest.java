@@ -26,7 +26,7 @@ public class ExpenseCategoryTest {
     void addExpenseCategory() {
         testExpenseCategory.addExpense(testExpense);
         assertEquals(1, testExpenseCategory.getListOfExpenses().size());
-        assertEquals(testExpense, testExpenseCategory.getListOfExpenses().get(1));
+        assertEquals(testExpense, testExpenseCategory.getListOfExpenses().get(0));
     }
 
 
