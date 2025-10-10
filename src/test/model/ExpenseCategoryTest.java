@@ -51,12 +51,14 @@ public class ExpenseCategoryTest {
 
     @Test
     void testSettersAndGetters() {
+        testExpenseCategory.setName("new expense category");
+
         testListOfExpenses.add(testExpense1);
         testListOfExpenses.add(testExpense2);
-
         testExpenseCategory.addExpense(testExpense1);
         testExpenseCategory.addExpense(testExpense2);
 
+        assertEquals("new expense category", testExpenseCategory.getName());
         assertEquals(2, testExpenseCategory.getListOfExpenses().size());
         assertEquals(testListOfExpenses, testExpenseCategory.getListOfExpenses());
     }
