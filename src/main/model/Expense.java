@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 // A class representing the an expense with a name and cost
 public class Expense {
     String name;

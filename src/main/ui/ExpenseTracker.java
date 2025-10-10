@@ -3,7 +3,6 @@ package ui;
 import model.ExpenseList;
 import model.Expense;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 // An expense tracker application that allows user to add expenses
@@ -15,8 +14,9 @@ public class ExpenseTracker {
     private boolean isProgramRunning;
 
     // EFFECTS: Creates an instance of the ExpenseTracker console ui application
+    //          (referenced from lab 4)
     public ExpenseTracker() {
-       init();
+        init();
 
         printDivider();
         System.out.println("Welcome to the Expense Tracker app!");
@@ -29,6 +29,7 @@ public class ExpenseTracker {
 
     // MODIFIES: this
     // EFFECTS: initializes the application with the starting values
+    //          (referenced from lab 4)
     public void init() {
         expenseList = new ExpenseList();
         this.scanner = new Scanner(System.in);
@@ -36,6 +37,7 @@ public class ExpenseTracker {
     }
 
     // EFFECTS: displays and processes inputs for the main menu
+    //          (referenced from lab 4)
     public void handleMenu() {
         displayMenu();
         Boolean isInt = false;
@@ -55,6 +57,7 @@ public class ExpenseTracker {
     }
 
     // EFFECTS: displays a list of commands that can be used in the main menu
+    //          (referenced from lab 4)
     public void displayMenu() {
         System.out.println("Please select an option:\n");
         System.out.println("1: View all expenses");
@@ -64,11 +67,14 @@ public class ExpenseTracker {
         System.out.println("5: Change category of an expense");
         System.out.println("6: Change payment status of an expense");
         System.out.println("7: Change cost of an expense");
+        System.out.println("8: View number of expenses");
+        System.out.println("9: View total cost of expenses");
         System.out.println("0: Exit the application");
         printDivider();
     }
 
     // EFFECTS: processes the user's input in the main menu
+    //          (referenced from lab 4)
     public void processMenuCommands(int input) {
         printDivider();
         switch (input) {
@@ -92,6 +98,12 @@ public class ExpenseTracker {
                 break;
             case 7:
                 changeExpensePaymentStatus();
+                break;
+            case 8:
+                viewNumberOfExpenses();
+                break;
+            case 9:
+                viewTotalCostOfExpenses();
                 break;
             case 0:
                 quitApplication();
@@ -276,13 +288,17 @@ public class ExpenseTracker {
         System.out.println(nameInput + " cost was changed to " + newCost);
     }
 
-    // MODIFIES: this
-    // EFFECTS: prints a closing message and marks the program as not running
-    public void quitApplication() {
-        System.out.println("Thank you for using the Expense Tracker app!");
-        this.isProgramRunning = false;
+    // EFFECTS: prints total number of expenses
+    public void viewNumberOfExpenses(String name){
+        // stub;
     }
 
+    // EFFECTS: prints total number of expenses
+    public void viewTotalCostOfExpenses(String name){
+        // stub
+    }  
+
+    // EFFECTS: returns index of expense in expenseList with a specific name
     public int getIndex(String name){
         for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             String expenseName = expenseList.getListOfExpenses().get(i).getName();
@@ -293,7 +309,16 @@ public class ExpenseTracker {
         return -1;
     }
 
-    // EFFECTS: prints out a line of dashes to act as a divider
+    // MODIFIES: this
+    // EFFECTS: prints a closing message and marks the program as not running
+    //          (referenced from lab 4)
+    public void quitApplication() {
+        System.out.println("Thank you for using the Expense Tracker app!");
+        this.isProgramRunning = false;
+    }
+
+    // EFFECTS: prints out a line of dashes to act as a 
+    //          (referenced from lab 4)
     private void printDivider() {
         System.out.println("------------------------------------");
     }
