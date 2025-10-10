@@ -62,8 +62,8 @@ public class ExpenseTracker {
         System.out.println("3: Remove an expense");
         System.out.println("4: Rename an expense");
         System.out.println("5: Change category of an expense");
-        System.out.println("6: Change cost of an expense");
-        System.out.println("7: Change payment status of an expense");
+        System.out.println("6: Change payment status of an expense");
+        System.out.println("7: Change cost of an expense");
         System.out.println("0: Exit the application");
         printDivider();
     }
@@ -112,7 +112,6 @@ public class ExpenseTracker {
     // EFFECTS: adds an Expense to ExpenseList
     public void addExpense() {
         Boolean isInt = false;
-        Boolean isBool = false;
 
         String nameInput = "";
         String categoryInput = "";
@@ -133,14 +132,13 @@ public class ExpenseTracker {
 
                 System.out.println("Enter the payment status (true/false):");
                 statusInput = scanner.nextBoolean();
-                isBool = true;
 
                 scanner.nextLine(); 
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(isInt != true && isBool != true);
+        } while(isInt != true && !(statusInput == true || statusInput == false));
 
         Expense expense = new Expense(nameInput, categoryInput, costInput, statusInput);
         expenseList.addExpense(expense);
@@ -148,7 +146,7 @@ public class ExpenseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes an Expense from ExpenseList
+    // EFFECTS: removes an expense from ExpenseList
     public void removeExpense() {
         String nameInput = "";
 
@@ -169,7 +167,7 @@ public class ExpenseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: prints list of expenses in ExpenseList
+    // EFFECTS: rename an expense
     public void renameExpense() {
         String nameInput = "";
         String newNameInput = "";
@@ -193,7 +191,7 @@ public class ExpenseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds an Expense to ExpenseList
+    // EFFECTS: change category of an expense
     public void changeExpenseCategory() {
         String nameInput = "";
         String categoryInput = "";
@@ -209,25 +207,64 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(!expenseList.getListOfExpenses().contains(categoryInput));
+        } while(!expenseList.getListOfExpenseNames().contains(categoryInput));
 
-        int index = getIndex(categoryInput);
-        expenseList.getListOfExpenses().get(index).setName(categoryInput);
+        int index = getIndex(nameInput);
+        expenseList.getListOfExpenses().get(index).setCategory(categoryInput);
         System.out.println(nameInput + " category was renamed to " + categoryInput);
     }
 
     // MODIFIES: this
-    // EFFECTS: removes an Expense from ExpenseList
+    // EFFECTS: change payment status of an expense
     public void changeExpensePaymentStatus() {
-        System.out.println("Thank you for using the Expense Tracker app!");
-        this.isProgramRunning = false;
+        String nameInput = "";
+        Boolean statusInput = false;
+
+        do {
+            try {
+                System.out.println("Enter the name of the expense:");
+                nameInput = scanner.nextLine();
+
+                System.out.println("Enter the new payment status (true/false):");
+                statusInput = scanner.nextBoolean();
+
+                scanner.nextLine(); 
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please try again.");
+                scanner.nextLine();
+            }
+        } while(!expenseList.getListOfExpenseNames().contains(nameInput)
+                && !(statusInput == true || statusInput == false));
+
+        int index = getIndex(nameInput);
+        expenseList.getListOfExpenses().get(index).setPaymentStatus(statusInput);
+        System.out.println(nameInput + " payment status was changed to " + statusInput);
     }
 
     // MODIFIES: this
-    // EFFECTS: removes an Expense from ExpenseList
+    // EFFECTS: change cost of an expense
     public void changeExpenseCost() {
-        System.out.println("Thank you for using the Expense Tracker app!");
-        this.isProgramRunning = false;
+        String nameInput = "";
+        int newCost = 0;
+
+        do {
+            try {
+                System.out.println("Enter the name of the expense:");
+                nameInput = scanner.nextLine();
+
+                System.out.println("Enter the new cost of an expense (true/false):");
+                newCost = scanner.nextInt();
+
+                scanner.nextLine(); 
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please try again.");
+                scanner.nextLine();
+            }
+        } while(!expenseList.getListOfExpenseNames().contains(nameInput) && newCost >= 0);
+
+        int index = getIndex(nameInput);
+        expenseList.getListOfExpenses().get(index).setCost(newCost);
+        System.out.println(nameInput + " cost was changed to " + newCost);
     }
 
     // MODIFIES: this
@@ -238,15 +275,14 @@ public class ExpenseTracker {
     }
 
     public int getIndex(String name){
-    for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
-        String expenseName = expenseList.getListOfExpenses().get(i).getName();
-        //search the string
-        if(name.equals(expenseName)) {
-            return i;
+        for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
+            String expenseName = expenseList.getListOfExpenses().get(i).getName();
+            if(name.equals(expenseName)) {
+                return i;
+            }
         }
+        return -1;
     }
-    return -1;
-}
 
     // EFFECTS: prints out a line of dashes to act as a divider
     private void printDivider() {
