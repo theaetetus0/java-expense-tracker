@@ -114,7 +114,7 @@ public class ExpenseTracker {
         printDivider();
     }
 
-    // EFFECTS: prints list of expenses in ExpenseList
+    // EFFECTS: prints list of expenses in expenseList
     public void viewExpenses() {
         System.out.println("List of expenses:");
         for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
@@ -122,6 +122,7 @@ public class ExpenseTracker {
             String expenseCategory = expenseList.getListOfExpenses().get(i).getCategory();
             int expenseCost = expenseList.getListOfExpenses().get(i).getCost();
             Boolean expensePaymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
+
             System.out.println("Name: " + expenseName + ", Category: " + expenseCategory 
             + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
         }
@@ -129,7 +130,7 @@ public class ExpenseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds an Expense to ExpenseList
+    // EFFECTS: adds an Expense to expenseList
     public void addExpense() {
         String nameInput = "";
         String categoryInput = "";
@@ -169,7 +170,7 @@ public class ExpenseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes an expense from ExpenseList
+    // EFFECTS: removes an expense from expenseList
     public void removeExpense() {
         String nameInput = "";
 

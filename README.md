@@ -5,13 +5,12 @@
 
 **What will the application do?**
 
-The application is an expense tracker that tracks a user's monthly income and expenses.
-A user will be able to keep tabs on their spendings, manage bills and budgets, as well as get personal insight.
-The user will be able to enter their income and add invidual expenses to different types of expense categories
+The application is an expense tracker that tracks a user's expenses.
+A user will be able to keep tabs on their spendings as well as get personal insight from graphs.
+The user will be able to add invidual expenses to different types of expense categories
 that they define.
 
-The application will be able to visualize the user's income and expenses into a graph.
-Budgets based on popular budget saving strategies will be recommended to the user.
+The application will be able to visualize the user's expenses into a graph.
 
 **Who will use it?**
 
@@ -32,7 +31,7 @@ would not only be interting, but also rather usefull.
 ## User Stories
 
 - As a user, I want to be to view the list of expenses in each expense category.
-- As a user, I want to be able to see the number of expenses that I have.
-- As a user, I want to be able to see total cost of my expenses.
 - As a user, I want to be able to add, remove, and update new or existing expenses in my list of expense categories.
+- As a user, I want to be able to see the number of expenses that I have.
+- As a user, I want to be able to see the total cost of my expenses.
 - As a user, I want to be able to visualize my monthly expenditure into graphs.
