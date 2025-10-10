@@ -105,7 +105,15 @@ public class ExpenseTracker {
     // EFFECTS: prints list of expenses in ExpenseList
     public void viewExpenses() {
         System.out.println("List of expenses:");
-        System.out.println(expenseList.getListOfExpenseNames());
+        for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
+            String expenseName = expenseList.getListOfExpenses().get(i).getName();
+            String expenseCategory = expenseList.getListOfExpenses().get(i).getCategory();
+            int expenseCost = expenseList.getListOfExpenses().get(i).getCost();
+            Boolean expensePaymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
+            System.out.println("Name: " + expenseName + ", Category: " + expenseCategory 
+            + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
+        }
+
     }
 
     // MODIFIES: this
@@ -128,12 +136,13 @@ public class ExpenseTracker {
 
                 System.out.println("Enter the cost of the expense:");
                 costInput = scanner.nextInt();
-                isInt = true;
 
                 System.out.println("Enter the payment status (true/false):");
                 statusInput = scanner.nextBoolean();
 
                 scanner.nextLine(); 
+                isInt = true;
+
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
