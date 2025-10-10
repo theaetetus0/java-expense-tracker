@@ -131,12 +131,13 @@ public class ExpenseTracker {
     // MODIFIES: this
     // EFFECTS: adds an Expense to ExpenseList
     public void addExpense() {
-        Boolean isInt = false;
-
         String nameInput = "";
         String categoryInput = "";
         int costInput = -1;
         Boolean statusInput = false;
+
+        Boolean isInt = false;
+        Boolean isBool = false;
 
         do {
             try {
@@ -146,7 +147,7 @@ public class ExpenseTracker {
                 System.out.println("Enter the expense category:");
                 categoryInput = scanner.nextLine(); 
 
-                System.out.println("Enter the cost of the expense:");
+                System.out.println("Enter the cost of the expense (cost >= 0):");
                 costInput = scanner.nextInt();
 
                 System.out.println("Enter the payment status (true/false):");
@@ -154,12 +155,13 @@ public class ExpenseTracker {
 
                 scanner.nextLine(); 
                 isInt = true;
+                isBool = true;
 
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(isInt != true && !(statusInput == true || statusInput == false));
+        } while(isInt != true && isBool != true && costInput >= 0);
 
         Expense expense = new Expense(nameInput, categoryInput, costInput, statusInput);
         expenseList.addExpense(expense);
@@ -240,6 +242,7 @@ public class ExpenseTracker {
     public void changeExpensePaymentStatus() {
         String nameInput = "";
         Boolean statusInput = false;
+        Boolean isBool = false;
 
         do {
             try {
@@ -250,12 +253,13 @@ public class ExpenseTracker {
                 statusInput = scanner.nextBoolean();
 
                 scanner.nextLine(); 
+                isBool = true;
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
         } while(!expenseList.getListOfExpenseNames().contains(nameInput)
-                && !(statusInput == true || statusInput == false));
+                && isBool != true);
 
         int index = getIndex(nameInput);
         expenseList.getListOfExpenses().get(index).setPaymentStatus(statusInput);
@@ -273,7 +277,7 @@ public class ExpenseTracker {
                 System.out.println("Enter the name of the expense:");
                 nameInput = scanner.nextLine();
 
-                System.out.println("Enter the new cost of an expense (true/false):");
+                System.out.println("Enter the new cost of an expense (cost >= 0):");
                 newCost = scanner.nextInt();
 
                 scanner.nextLine(); 
@@ -294,7 +298,7 @@ public class ExpenseTracker {
         for(Expense expense : expenseList.getListOfExpenses()) {
             total++;
         }
-        System.out.println("You have " + total + " total expenses.");
+        System.out.println("You have " + total + " total expense(s).");
     }
 
     // EFFECTS: prints total cost of expenses
