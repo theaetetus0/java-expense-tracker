@@ -5,14 +5,16 @@ import java.util.ArrayList;
 // A class representing the an expense with a name and cost
 public class Expense {
     String name;
+    String category;
     int cost;
     Boolean paymentStatus;
 
     // REQUIRES: cost >= 0
     // EFFECTS: constructs a new expense with 
     //          name, cost, and payment status
-    public Expense(String name, int cost, Boolean paymentStatus) {
+    public Expense(String name, String category, int cost, Boolean paymentStatus) {
         this.name = name;
+        this.category = category;
         this.cost = cost;
         this.paymentStatus = paymentStatus;
     }
@@ -24,6 +26,12 @@ public class Expense {
     }
 
     // MODIFIES: this
+    // EFFECTS: set category of an expense
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    // MODIFIES: this
     // EFFECTS: set cost of an expense
     public void setCost(int cost) {
         this.cost = cost;
@@ -31,13 +39,18 @@ public class Expense {
 
     // MODIFIES: this
     // EFFECTS: set payment status
-    public void setStatus(Boolean paymentStatus) {
+    public void setPaymentStatus(Boolean paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 
     // EFFECTS: returns the name of an expense
     public String getName() {
         return this.name;
+    }
+
+    // EFFECTS: returns the category of an expense
+    public String getCategory() {
+        return this.category;
     }
 
     // EFFECTS: returns the cost of an expense

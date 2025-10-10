@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 // A class representing the expense categories
 public class ExpenseCategory {
+    String name;
     ArrayList<Expense> listOfExpenses;
-
-    // EFFECTS: constructs new expense categories and adds it to listOfExpenses
-    public ExpenseCategory() {
+   
+    // EFFECTS: constructs new expense category with a name and listOfExpenses
+    public ExpenseCategory(String name) {
+        this.name = name;
         listOfExpenses = new ArrayList<Expense>();
     }
 
@@ -23,9 +25,19 @@ public class ExpenseCategory {
         listOfExpenses.remove(expense);
     }
 
-    // EFFECTS: returns listOfExpenseCategories
-    public ArrayList<Expense> getListOfExpenses() {
-        return listOfExpenses;
+    // MODIFIES: this
+    // EFFECTS: set name of expense category
+    public void setName(String name) {
+        this.name = name;
     }
 
+    // EFFECTS: returns name of expense category
+    public String getName() {
+        return this.name;
+    }
+    
+    // EFFECTS: returns listOfExpenses
+    public ArrayList<Expense> getListOfExpenses() {
+        return this.listOfExpenses;
+    }
 }
