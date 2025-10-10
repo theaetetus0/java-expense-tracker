@@ -9,25 +9,56 @@ import org.junit.jupiter.api.Test;
 
 public class ExpenseCategoryTest {
     ExpenseCategory testExpenseCategory;
-    Expense testExpense;
+    Expense testExpense1;
+    Expense testExpense2;
+    ArrayList<Expense> testListOfExpenses;
 
     @BeforeEach
     void runBefore() {
-        testExpenseCategory = new ExpenseCategory();
-        testExpense = new Expense("test expense", 100);
+        testExpenseCategory = new ExpenseCategory("test expense category");
+        testListOfExpenses = new ArrayList<Expense>();
+        testExpense1 = new Expense("expense1", "category", 100, false);
+        testExpense2 = new Expense("expense2", "category", 200, true);
     }
 
     @Test
     void testConstructor() {
+        assertEquals("test expense category", testExpenseCategory.getName());
         assertEquals(0, testExpenseCategory.getListOfExpenses().size());
     }
 
     @Test
-    void addExpenseCategory() {
-        testExpenseCategory.addExpense(testExpense);
+    void testAddExpense() {
+        testExpenseCategory.addExpense(testExpense1);
         assertEquals(1, testExpenseCategory.getListOfExpenses().size());
-        assertEquals(testExpense, testExpenseCategory.getListOfExpenses().get(0));
+        assertEquals(testExpense1, testExpenseCategory.getListOfExpenses().get(0));
+
+        testExpenseCategory.addExpense(testExpense2);
+        assertEquals(2, testExpenseCategory.getListOfExpenses().size());
+        assertEquals(testExpense2, testExpenseCategory.getListOfExpenses().get(1));
     }
 
+    @Test
+    void testRemoveExpense() {
+        testExpenseCategory.addExpense(testExpense1);   
+        testExpenseCategory.addExpense(testExpense2);
+        assertEquals(2, testExpenseCategory.getListOfExpenses().size());
+
+        testExpenseCategory.removeExpense(testExpense1);
+        assertEquals(1, testExpenseCategory.getListOfExpenses().size());
+        assertEquals(testExpense2, testExpenseCategory.getListOfExpenses().get(0));
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        testListOfExpenses.add(testExpense1);
+        testListOfExpenses.add(testExpense2);
+
+        testExpenseCategory.addExpense(testExpense1);
+        testExpenseCategory.addExpense(testExpense2);
+
+        assertEquals(2, testExpenseCategory.getListOfExpenses().size());
+        assertEquals(testListOfExpenses, testExpenseCategory.getListOfExpenses());
+    }
 
 }
