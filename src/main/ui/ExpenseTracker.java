@@ -51,7 +51,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please enter an integer.");
                 scanner.nextLine();
             }
-        } while(isInt != true);
+        } while (isInt != true);
 
         processMenuCommands(input);
     }
@@ -117,14 +117,15 @@ public class ExpenseTracker {
     // EFFECTS: prints list of expenses in expenseList
     public void viewExpenses() {
         System.out.println("List of expenses:");
-        for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
+
+        for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             String expenseName = expenseList.getListOfExpenses().get(i).getName();
             String expenseCategory = expenseList.getListOfExpenses().get(i).getCategory();
             int expenseCost = expenseList.getListOfExpenses().get(i).getCost();
             Boolean expensePaymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
 
             System.out.println("Name: " + expenseName + ", Category: " + expenseCategory 
-            + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
+                + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
         }
 
     }
@@ -162,7 +163,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(isInt != true && isBool != true && costInput >= 0);
+        } while (isInt != true && isBool != true && costInput >= 0);
 
         Expense expense = new Expense(nameInput, categoryInput, costInput, statusInput);
         expenseList.addExpense(expense);
@@ -183,7 +184,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(!expenseList.getListOfExpenseNames().contains(nameInput));
+        } while (!expenseList.getListOfExpenseNames().contains(nameInput));
 
         int index = getIndex(nameInput);
         expenseList.removeExpense(expenseList.getListOfExpenses().get(index));
@@ -207,7 +208,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(!expenseList.getListOfExpenseNames().contains(nameInput));
+        } while (!expenseList.getListOfExpenseNames().contains(nameInput));
 
         int index = getIndex(nameInput);
         expenseList.getListOfExpenses().get(index).setName(newNameInput);
@@ -231,7 +232,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(!expenseList.getListOfExpenseNames().contains(categoryInput));
+        } while (!expenseList.getListOfExpenseNames().contains(categoryInput));
 
         int index = getIndex(nameInput);
         expenseList.getListOfExpenses().get(index).setCategory(categoryInput);
@@ -259,7 +260,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(!expenseList.getListOfExpenseNames().contains(nameInput)
+        } while (!expenseList.getListOfExpenseNames().contains(nameInput)
                 && isBool != true);
 
         int index = getIndex(nameInput);
@@ -286,7 +287,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
             }
-        } while(!expenseList.getListOfExpenseNames().contains(nameInput) && newCost >= 0);
+        } while (!expenseList.getListOfExpenseNames().contains(nameInput) && newCost >= 0);
 
         int index = getIndex(nameInput);
         expenseList.getListOfExpenses().get(index).setCost(newCost);
@@ -296,7 +297,8 @@ public class ExpenseTracker {
     // EFFECTS: prints total number of expenses
     public void viewNumberOfExpenses(){
         int total = 0;
-        for(Expense expense : expenseList.getListOfExpenses()) {
+
+        for (Expense expense : expenseList.getListOfExpenses()) {
             total++;
         }
         System.out.println("You have " + total + " total expense(s).");
@@ -305,7 +307,7 @@ public class ExpenseTracker {
     // EFFECTS: prints total cost of expenses
     public void viewTotalCostOfExpenses(){
         int totalCost = 0;
-        for(Expense expense : expenseList.getListOfExpenses()) {
+        for (Expense expense : expenseList.getListOfExpenses()) {
             totalCost += expense.getCost();
         }
         System.out.println("The total cost of expenses is $" + totalCost + "");
@@ -313,9 +315,10 @@ public class ExpenseTracker {
 
     // EFFECTS: returns index of expense in expenseList with a specific name
     public int getIndex(String name){
-        for(int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
+        for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             String expenseName = expenseList.getListOfExpenses().get(i).getName();
-            if(name.equals(expenseName)) {
+            
+            if (name.equals(expenseName)) {
                 return i;
             }
         }
