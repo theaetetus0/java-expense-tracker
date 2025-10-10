@@ -30,11 +30,11 @@ public class ExpenseListTest {
     void testAddExpense() {
         testExpenseList.addExpense(testExpense1);
         assertEquals(1, testExpenseList.getListOfExpenses().size());
-        assertEquals("expense1", testExpenseList.getListOfExpenses().get(0));
+        assertEquals(testExpense1, testExpenseList.getListOfExpenses().get(0));
 
         testExpenseList.addExpense(testExpense2);
         assertEquals(2, testExpenseList.getListOfExpenses().size());
-        assertEquals("expense2", testExpenseList.getListOfExpenses().get(1));
+        assertEquals(testExpense2, testExpenseList.getListOfExpenses().get(1));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ExpenseListTest {
 
         testExpenseList.removeExpense(testExpense1);
         assertEquals(1, testExpenseList.getListOfExpenses().size());
-        assertEquals("expense2", testExpenseList.getListOfExpenses().get(0));
+        assertEquals(testExpense2, testExpenseList.getListOfExpenses().get(0));
     }
 
     @Test
@@ -56,7 +56,8 @@ public class ExpenseListTest {
         testExpenseList.addExpense(testExpense2);
 
         assertEquals(2, testExpenseList.getListOfExpenses().size());
-        assertEquals("expense1", testExpenseList.getListOfExpenses().get(0));
+        assertEquals(testExpense1, testExpenseList.getListOfExpenses().get(0));
+        assertEquals("expense1", testExpenseList.getListOfExpenseNames().get(0));
     }
 
 }

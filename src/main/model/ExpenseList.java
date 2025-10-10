@@ -24,7 +24,12 @@ public class ExpenseList {
     }
     
     // EFFECTS: returns listOfExpenses
-    public ArrayList<String> getListOfExpenses() {
+    public ArrayList<Expense> getListOfExpenses() {
+        return listOfExpenses;
+    }
+
+    // EFFECTS: returns listOfExpenses names
+    public ArrayList<String> getListOfExpenseNames() {
         ArrayList<String> listOfExpenseNames = new ArrayList<String>();
         for (Expense expense : listOfExpenses) {
             listOfExpenseNames.add(expense.getName());
