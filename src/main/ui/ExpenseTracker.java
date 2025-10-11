@@ -124,8 +124,7 @@ public class ExpenseTracker {
             int expenseCost = expenseList.getListOfExpenses().get(i).getCost();
             Boolean expensePaymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
 
-            System.out.println("Name: " + expenseName + ", Category: " + expenseCategory 
-                + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
+            System.out.println("Name: " + expenseName + ", Category: " + expenseCategory + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
         }
 
     }
@@ -317,7 +316,7 @@ public class ExpenseTracker {
     public int getIndex(String name){
         for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             String expenseName = expenseList.getListOfExpenses().get(i).getName();
-            
+
             if (name.equals(expenseName)) {
                 return i;
             }
