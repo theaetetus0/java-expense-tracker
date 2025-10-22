@@ -35,3 +35,7 @@ would not only be interting, but also rather usefull.
 - As a user, I want to be able to see the number of expenses that I have.
 - As a user, I want to be able to see the total cost of my expenses.
 - As a user, I want to be able to visualize my monthly expenditure into graphs.
+
+- As a user, when I select the quit option from the application menu, I want to have the option to save my list of expenses 
+with their respective names, categories, cost, and payment status.
+- As a user, I want to be given the option to load my list of expenses from file when I start the Expense Tracker application.

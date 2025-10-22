@@ -119,14 +119,14 @@ public class ExpenseTracker {
         System.out.println("List of expenses:");
 
         for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
-            String expenseName = expenseList.getListOfExpenses().get(i).getName();
-            String expenseCategory = expenseList.getListOfExpenses().get(i).getCategory();
-            int expenseCost = expenseList.getListOfExpenses().get(i).getCost();
-            Boolean expensePaymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
+            String name = expenseList.getListOfExpenses().get(i).getName();
+            String category = expenseList.getListOfExpenses().get(i).getCategory();
+            int cost = expenseList.getListOfExpenses().get(i).getCost();
+            Boolean paymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
 
-            System.out.println("Name: " + expenseName + ", Category: " + expenseCategory + ", Cost: " + expenseCost + ", Payment Status: " + expensePaymentStatus);
+            System.out.println("Name: " + name + ", Category: " + category
+                                + ", Cost: " + cost + ", Payment Status: " + paymentStatus);
         }
-
     }
 
     // MODIFIES: this
@@ -136,7 +136,6 @@ public class ExpenseTracker {
         String categoryInput = "";
         int costInput = -1;
         Boolean statusInput = false;
-
         Boolean isInt = false;
         Boolean isBool = false;
 
@@ -144,20 +143,15 @@ public class ExpenseTracker {
             try {
                 System.out.println("Enter the name of the expense:");
                 nameInput = scanner.nextLine();
-
                 System.out.println("Enter the expense category:");
                 categoryInput = scanner.nextLine(); 
-
                 System.out.println("Enter the cost of the expense (cost >= 0):");
                 costInput = scanner.nextInt();
-
                 System.out.println("Enter the payment status (true/false):");
                 statusInput = scanner.nextBoolean();
-
                 scanner.nextLine(); 
                 isInt = true;
                 isBool = true;
-
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again.");
                 scanner.nextLine();
@@ -294,17 +288,17 @@ public class ExpenseTracker {
     }
 
     // EFFECTS: prints total number of expenses
-    public void viewNumberOfExpenses(){
+    public void viewNumberOfExpenses() {
         int total = 0;
 
-        for (Expense expense : expenseList.getListOfExpenses()) {
+        for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             total++;
         }
         System.out.println("You have " + total + " total expense(s).");
     }
 
     // EFFECTS: prints total cost of expenses
-    public void viewTotalCostOfExpenses(){
+    public void viewTotalCostOfExpenses() {
         int totalCost = 0;
         for (Expense expense : expenseList.getListOfExpenses()) {
             totalCost += expense.getCost();
@@ -313,7 +307,7 @@ public class ExpenseTracker {
     }  
 
     // EFFECTS: returns index of expense in expenseList with a specific name
-    public int getIndex(String name){
+    public int getIndex(String name) {
         for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             String expenseName = expenseList.getListOfExpenses().get(i).getName();
 
