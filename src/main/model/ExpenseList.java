@@ -44,11 +44,19 @@ public class ExpenseList implements Writable {
 
     @Override
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("expenses", expensesToJson());
+        return json;
     }
 
     // EFFECTS: returns things in this workroom as a JSON array
     private JSONArray expensesToJson() {
-        return null;
+        JSONArray jsonArray = new JSONArray();
+
+        for (Expense next : listOfExpenses) {
+            jsonArray.put(next.toJson());
+        }
+
+        return jsonArray;
     }
 }

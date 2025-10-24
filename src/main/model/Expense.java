@@ -65,8 +65,18 @@ public class Expense implements Writable {
         return this.paymentStatus;
     }
 
+    // EFFECTS: returns string representation of this thingy
+    public String toString() {
+        return String.valueOf(paymentStatus) + ": " +  String.valueOf(cost) + ": " + category + ": " + name;
+    }
+
     @Override
     public JSONObject toJson() {
-        return null;
+        JSONObject json = new JSONObject();
+        json.put("name", this.name);
+        json.put("category", this.category);
+        json.put("cost", this.cost);
+        json.put("paymentStatus", this.paymentStatus);
+        return json;
     }
 }
