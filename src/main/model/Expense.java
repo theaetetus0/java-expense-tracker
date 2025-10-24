@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 // A class representing the an expense with a name and cost
-public class Expense {
+public class Expense implements Writable {
     String name;
     String category;
     int cost;
@@ -59,5 +63,10 @@ public class Expense {
     // EFFECTS: returns the cost of an expense
     public Boolean getPaymentStatus() {
         return this.paymentStatus;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        return null;
     }
 }

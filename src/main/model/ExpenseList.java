@@ -1,9 +1,13 @@
 package model;
 
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
+import java.util.*;
 
 // A class representing the expense categories
-public class ExpenseList {
+public class ExpenseList implements Writable {
     ArrayList<Expense> listOfExpenses;
    
     // EFFECTS: constructs new expense list with a name and listOfExpenses
@@ -36,5 +40,15 @@ public class ExpenseList {
         }
         
         return listOfExpenseNames;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        return null;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray expensesToJson() {
+        return null;
     }
 }
