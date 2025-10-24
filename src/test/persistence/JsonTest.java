@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
+// referenced from JsonSerializationDemo
 @ExcludeFromJacocoGeneratedReport
 public class JsonTest {
     protected void checkExpense(String name, String category, int cost, Boolean paymentStatus, Expense expense) {
