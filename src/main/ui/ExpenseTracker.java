@@ -1,11 +1,18 @@
 package ui;
 
 import model.ExpenseList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 import model.Expense;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
 // An expense tracker application that allows user to add expenses
+@ExcludeFromJacocoGeneratedReport
 public class ExpenseTracker {
 
     private ExpenseList expenseList;
@@ -13,14 +20,20 @@ public class ExpenseTracker {
     private Scanner scanner;
     private boolean isProgramRunning;
 
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/ExpenseList.json";
+
     // EFFECTS: Creates an instance of the ExpenseTracker console ui application
     //          (referenced from lab 4)
-    public ExpenseTracker() {
+    public ExpenseTracker() throws FileNotFoundException {
         init();
 
         printDivider();
         System.out.println("Welcome to the Expense Tracker app!");
         printDivider();
+
+        selectLoad();
 
         while (this.isProgramRunning) {
             handleMenu();
@@ -31,8 +44,10 @@ public class ExpenseTracker {
     // EFFECTS: initializes the application with the starting values
     //          (referenced from lab 4)
     public void init() {
-        expenseList = new ExpenseList();
+        this.expenseList = new ExpenseList();
         this.scanner = new Scanner(System.in);
+        this.jsonWriter = new JsonWriter(JSON_STORE);
+        this.jsonReader = new JsonReader(JSON_STORE);
         this.isProgramRunning = true;
     }
 
@@ -65,8 +80,8 @@ public class ExpenseTracker {
         System.out.println("3: Remove an expense");
         System.out.println("4: Rename an expense");
         System.out.println("5: Change category of an expense");
-        System.out.println("6: Change payment status of an expense");
         System.out.println("7: Change cost of an expense");
+        System.out.println("6: Change payment status of an expense");
         System.out.println("8: View number of expenses");
         System.out.println("9: View total cost of expenses");
         System.out.println("0: Exit the application");
@@ -322,6 +337,7 @@ public class ExpenseTracker {
     // EFFECTS: prints a closing message and marks the program as not running
     //          (referenced from lab 4)
     public void quitApplication() {
+        selectSave();
         System.out.println("Thank you for using the Expense Tracker app!");
         this.isProgramRunning = false;
     }
@@ -332,4 +348,80 @@ public class ExpenseTracker {
         System.out.println("------------------------------------");
     }
     
+    private int selectZeroOrOne() {
+        Boolean isZeroOrOne = false;
+        int input = -1;
+        do {
+            try {
+                input = scanner.nextInt(); 
+                scanner.nextLine();
+                if (input == 0 || input == 1) {
+                    isZeroOrOne = true;
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter an integer.");
+                scanner.nextLine();
+            }
+        } while (isZeroOrOne != true);
+
+        return input;
+    }
+
+    private void selectLoad() {
+        System.out.println("Please select an option:\n");
+        System.out.println("1: Create a new list of expenses");
+        System.out.println("0: Load a previous list of expenses");
+
+        int input = selectZeroOrOne();
+
+        switch (input) {
+            case 1:
+                break;
+            case 0:
+                loadExpenseList();
+                break;
+        }
+
+    }
+
+    private void selectSave() {
+        System.out.println("Please select an option:\n");
+        System.out.println("1: Save list of expenses");
+        System.out.println("0: Do not save list of expenses");
+
+        int input = selectZeroOrOne();
+
+        switch (input) {
+            case 1:
+                saveExpenseList();
+                break;
+            case 0:
+                break;
+        }
+
+    }
+
+    // EFFECTS: saves the ExpenseList to file
+    private void saveExpenseList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(expenseList);
+            jsonWriter.close();
+            System.out.println("Saved expenseList to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadExpenseList() {
+        try {
+            expenseList = jsonReader.read();
+            System.out.println("Loaded expenseList from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
 }

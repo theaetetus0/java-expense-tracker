@@ -1,0 +1,6 @@
+{"expenses": [{
+    "cost": 50,
+    "name": "a",
+    "category": "b",
+    "paymentStatus": true
+}]}
