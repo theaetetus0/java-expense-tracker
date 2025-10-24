@@ -65,11 +65,13 @@ public class Expense implements Writable {
         return this.paymentStatus;
     }
 
+    // referenced from JsonSerializationDemo
     // EFFECTS: returns string representation of this thingy
     public String toString() {
         return String.valueOf(paymentStatus) + ": " +  String.valueOf(cost) + ": " + category + ": " + name;
     }
 
+    // referenced from JsonSerializationDemo
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

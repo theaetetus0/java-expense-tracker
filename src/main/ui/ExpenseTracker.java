@@ -348,6 +348,7 @@ public class ExpenseTracker {
         System.out.println("------------------------------------");
     }
     
+    // EFFECTS: ask user for input of either 0 or 1
     private int selectZeroOrOne() {
         Boolean isZeroOrOne = false;
         int input = -1;
@@ -367,6 +368,7 @@ public class ExpenseTracker {
         return input;
     }
 
+    // EFFECTS: process user input for loading ExpenseList
     private void selectLoad() {
         System.out.println("Please select an option:\n");
         System.out.println("1: Create a new list of expenses");
@@ -384,6 +386,7 @@ public class ExpenseTracker {
 
     }
 
+    // EFFECTS: process user input for saving ExpenseList
     private void selectSave() {
         System.out.println("Please select an option:\n");
         System.out.println("1: Save list of expenses");
@@ -414,7 +417,7 @@ public class ExpenseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads workroom from file
+    // EFFECTS: loads ExpenseList from file
     private void loadExpenseList() {
         try {
             expenseList = jsonReader.read();

@@ -42,6 +42,7 @@ public class ExpenseList implements Writable {
         return listOfExpenseNames;
     }
 
+    // referenced from JsonSerializationDemo
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -49,6 +50,7 @@ public class ExpenseList implements Writable {
         return json;
     }
 
+    // referenced from JsonSerializationDemo
     // EFFECTS: returns things in this workroom as a JSON array
     private JSONArray expensesToJson() {
         JSONArray jsonArray = new JSONArray();
