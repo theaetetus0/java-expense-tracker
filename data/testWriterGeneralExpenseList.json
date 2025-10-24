@@ -1,0 +1,14 @@
+{"expenses": [
+    {
+        "cost": 500,
+        "name": "a",
+        "category": "rent",
+        "paymentStatus": false
+    },
+    {
+        "cost": 100,
+        "name": "b",
+        "category": "grocery",
+        "paymentStatus": true
+    }
+]}

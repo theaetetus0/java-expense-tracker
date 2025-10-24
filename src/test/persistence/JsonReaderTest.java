@@ -13,11 +13,42 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExcludeFromJacocoGeneratedReport
 public class JsonReaderTest extends JsonTest {
 
-    @BeforeEach
-    public void runBefore() {
-        
+    @Test
+    void testReaderNonExistentFile() {
+        JsonReader reader = new JsonReader("./data/noSuchFile.json");
+        try {
+            ExpenseList el = reader.read();
+            fail("IOException expected");
+        } catch (IOException e) {
+            // pass
+        }
     }
 
+    @Test
+    void testReaderEmptyExpenseList() {
+        JsonReader reader = new JsonReader("./data/testReaderEmptyExpenseList.json");
+        try {
+            ExpenseList el = reader.read();
+            assertEquals(0, el.getListOfExpenses().size());
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
+
+    @Test
+    void testReaderGeneralExpenseList() {
+        JsonReader reader = new JsonReader("./data/testReaderGeneralExpenseList.json");
+        try {
+            ExpenseList el = reader.read();
+            List<Expense> testList = el.getListOfExpenses();
+            assertEquals(2, testList.size());
+            checkExpense("a", "rent", 500, false, testList.get(0));
+            checkExpense("b", "grocery", 100, true, testList.get(1));
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
 }
