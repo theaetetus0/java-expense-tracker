@@ -39,3 +39,11 @@ would not only be interting, but also rather usefull.
 - As a user, when I select the quit option from the application menu, I want to have the option to save my list of expenses 
 with their respective names, categories, cost, and payment status.
 - As a user, I want to be given the option to load my list of expenses from file when I start the Expense Tracker application.
+
+## Instructions for End User
+
+- You can view the panel that displays the expenses that have already been added to the list of expenses.
+- You can add, remove, and update new or existing expenses by clicking on the respective buttons.
+- You can view the proportion of expenses by category using the graph expenses button.
+- You can save the state of my application by clicking the save button.
+- You can reload the state of my application by clicking the load button.
