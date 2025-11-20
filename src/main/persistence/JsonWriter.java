@@ -1,6 +1,5 @@
 package persistence;
 
-import model.Expense;
 import model.ExpenseList;
 
 import org.json.JSONObject;

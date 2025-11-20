@@ -3,7 +3,6 @@ package persistence;
 import model.Expense;
 import model.ExpenseList;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
