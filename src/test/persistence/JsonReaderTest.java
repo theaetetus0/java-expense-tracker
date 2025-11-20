@@ -45,8 +45,8 @@ public class JsonReaderTest extends JsonTest {
             ExpenseList el = reader.read();
             List<Expense> testList = el.getListOfExpenses();
             assertEquals(2, testList.size());
-            checkExpense("a", "rent", 500, false, testList.get(0));
-            checkExpense("b", "grocery", 100, true, testList.get(1));
+            checkExpense("a", "rent", 500.0, false, testList.get(0));
+            checkExpense("b", "grocery", 100.0, true, testList.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

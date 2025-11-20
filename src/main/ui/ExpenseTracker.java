@@ -136,7 +136,7 @@ public class ExpenseTracker {
         for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
             String name = expenseList.getListOfExpenses().get(i).getName();
             String category = expenseList.getListOfExpenses().get(i).getCategory();
-            int cost = expenseList.getListOfExpenses().get(i).getCost();
+            Double cost = expenseList.getListOfExpenses().get(i).getCost();
             Boolean paymentStatus = expenseList.getListOfExpenses().get(i).getPaymentStatus();
 
             System.out.println("Name: " + name + ", Category: " + category
@@ -149,7 +149,7 @@ public class ExpenseTracker {
     public void addExpense() {
         String nameInput = "";
         String categoryInput = "";
-        int costInput = -1;
+        Double costInput = -1.0;
         Boolean statusInput = false;
         Boolean isInt = false;
         Boolean isBool = false;
@@ -161,7 +161,7 @@ public class ExpenseTracker {
                 System.out.println("Enter the expense category:");
                 categoryInput = scanner.nextLine(); 
                 System.out.println("Enter the cost of the expense (cost >= 0):");
-                costInput = scanner.nextInt();
+                costInput = scanner.nextDouble();
                 System.out.println("Enter the payment status (true/false):");
                 statusInput = scanner.nextBoolean();
                 scanner.nextLine(); 
@@ -280,7 +280,7 @@ public class ExpenseTracker {
     // EFFECTS: change cost of an expense
     public void changeExpenseCost() {
         String nameInput = "";
-        int newCost = 0;
+        Double newCost = 0.0;
 
         do {
             try {
@@ -288,7 +288,7 @@ public class ExpenseTracker {
                 nameInput = scanner.nextLine();
 
                 System.out.println("Enter the new cost of an expense (cost >= 0):");
-                newCost = scanner.nextInt();
+                newCost = scanner.nextDouble();
 
                 scanner.nextLine(); 
             } catch (Exception e) {
@@ -314,7 +314,7 @@ public class ExpenseTracker {
 
     // EFFECTS: prints total cost of expenses
     public void viewTotalCostOfExpenses() {
-        int totalCost = 0;
+        Double totalCost = 0.0;
         for (Expense expense : expenseList.getListOfExpenses()) {
             totalCost += expense.getCost();
         }

@@ -10,7 +10,7 @@ public class ExpenseTest {
 
     @BeforeEach
     void runBefore() {
-        testExpense = new Expense("test expense", "test category", 100, false);
+        testExpense = new Expense("test expense", "test category", 100.0, false);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ExpenseTest {
     void testSettersAndGetters() {
         testExpense.setName("test new name");
         testExpense.setCategory("test new category");
-        testExpense.setCost(200);
+        testExpense.setCost(200.0);
         testExpense.setPaymentStatus(true);
 
         assertEquals("test new name", testExpense.getName());

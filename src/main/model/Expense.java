@@ -7,13 +7,13 @@ import persistence.Writable;
 public class Expense implements Writable {
     String name;
     String category;
-    int cost;
+    Double cost;
     Boolean paymentStatus;
 
     // REQUIRES: cost >= 0
     // EFFECTS: constructs a new expense with 
     //          name, cost, and payment status
-    public Expense(String name, String category, int cost, Boolean paymentStatus) {
+    public Expense(String name, String category, Double cost, Boolean paymentStatus) {
         this.name = name;
         this.category = category;
         this.cost = cost;
@@ -34,7 +34,7 @@ public class Expense implements Writable {
 
     // MODIFIES: this
     // EFFECTS: set cost of an expense
-    public void setCost(int cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
@@ -55,7 +55,7 @@ public class Expense implements Writable {
     }
 
     // EFFECTS: returns the cost of an expense
-    public int getCost() {
+    public Double getCost() {
         return this.cost;
     }
 

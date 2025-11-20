@@ -17,8 +17,8 @@ public class ExpenseListTest {
     void runBefore() {
         testExpenseList = new ExpenseList();
         testListOfExpenses = new ArrayList<Expense>();
-        testExpense1 = new Expense("expense1", "category", 100, false);
-        testExpense2 = new Expense("expense2", "category", 200, true);
+        testExpense1 = new Expense("expense1", "category", 100.0, false);
+        testExpense2 = new Expense("expense2", "category", 200.0, true);
     }
 
     @Test

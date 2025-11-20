@@ -9,7 +9,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 // referenced from JsonSerializationDemo
 @ExcludeFromJacocoGeneratedReport
 public class JsonTest {
-    protected void checkExpense(String name, String category, int cost, Boolean paymentStatus, Expense expense) {
+    protected void checkExpense(String name, String category, Double cost, Boolean paymentStatus, Expense expense) {
         assertEquals(name, expense.getName());
         assertEquals(category, expense.getCategory());
         assertEquals(cost, expense.getCost());

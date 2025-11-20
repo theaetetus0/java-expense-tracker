@@ -1,12 +1,12 @@
 {"expenses": [
     {
-        "cost": 1000,
+        "cost": 1000.0,
         "name": "a",
         "category": "rent",
         "paymentStatus": false
     },
     {
-        "cost": 50,
+        "cost": 50.0,
         "name": "b",
         "category": "groceries",
         "paymentStatus": true

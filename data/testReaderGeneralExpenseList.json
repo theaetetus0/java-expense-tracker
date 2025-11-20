@@ -3,13 +3,13 @@
         {
             "name": "a",
             "category": "rent",
-            "cost": 500,
+            "cost": 500.0,
             "paymentStatus": false
         },
         {
             "name": "b",
             "category": "grocery",
-            "cost": 100,
+            "cost": 100.0,
             "paymentStatus": true
         }
     ]

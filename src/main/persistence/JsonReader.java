@@ -62,7 +62,7 @@ public class JsonReader {
     private void addExpense(ExpenseList el, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String category = jsonObject.getString("category");
-        int cost = jsonObject.getInt("cost");
+        Double cost = jsonObject.getDouble("cost");
         Boolean paymentStatus = jsonObject.getBoolean("paymentStatus");
         Expense expense = new Expense(name, category, cost, paymentStatus);
         el.addExpense(expense);
