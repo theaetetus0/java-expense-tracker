@@ -2,11 +2,15 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Collection;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Map;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
+// Draw piegraph for each expense category by percentage
+@ExcludeFromJacocoGeneratedReport
 public class PieGraph extends JPanel {
     private final int graphXPosition = 60;
     private final int graphYPosition = 80;

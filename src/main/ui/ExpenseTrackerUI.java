@@ -23,7 +23,6 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // GUI for Expense Tracker Application
 @ExcludeFromJacocoGeneratedReport
-
 public class ExpenseTrackerUI extends JFrame {
     private static final int WIDTH = 1050;
     private static final int HEIGHT = 600;
@@ -124,12 +123,14 @@ public class ExpenseTrackerUI extends JFrame {
         setJMenuBar(menuBar);
     }
 
+    // Set style for buttons
     private void setButtonStyle(JButton button) {
         button.setForeground(Color.BLACK);
         button.setBackground(Color.WHITE);
         button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
     }
 
+    // Set style for drop down menus
     private void setMenuStyle(JMenu menu) {
         menu.setForeground(Color.BLACK);
         menu.setBackground(Color.WHITE);
@@ -598,7 +599,8 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // starts the application
+    // starts the 
+    // Referenced from AlarmSystem from CPSC 210 github
     public static void main(String[] args) {
         new ExpenseTrackerUI();
     }
