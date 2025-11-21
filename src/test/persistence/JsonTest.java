@@ -14,6 +14,7 @@ public class JsonTest {
         assertEquals(category, expense.getCategory());
         assertEquals(cost, expense.getCost());
         assertEquals(paymentStatus, expense.getPaymentStatus());
-        assertEquals(String.valueOf(paymentStatus) + ": " +  String.valueOf(cost) + ": " + category + ": " + name, expense.toString());
+        assertEquals(String.valueOf(paymentStatus) + ": " +  String.valueOf(cost) 
+                + ": " + category + ": " + name, expense.toString());
     }
 }

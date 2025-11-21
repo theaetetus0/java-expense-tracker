@@ -20,7 +20,6 @@ public class JsonReaderTest extends JsonTest {
     void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
-            @SuppressWarnings("unused")
             ExpenseList el = reader.read();
             fail("IOException expected");
         } catch (IOException e) {

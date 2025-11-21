@@ -45,7 +45,7 @@ public class ExpenseList implements Writable {
     // EFFECTS: returns total number of expenses
     public int getTotalNumberOfExpenses() {
         int total = 0;
-        for (@SuppressWarnings("unused") Expense expense : listOfExpenses) {
+        for (Expense expense : listOfExpenses) {
             total++;
         }
         
