@@ -41,9 +41,9 @@ with their respective names, categories, cost, and payment status.
 - As a user, I want to be given the option to load my list of expenses from file when I start the Expense Tracker application.
 
 ## Instructions for End User
-
-- You can view the panel that displays the expenses that have already been added to the list of expenses.
-- You can add, remove, and update new or existing expenses by clicking on the respective buttons.
-- You can view the proportion of expenses by category using the graph expenses button.
-- You can save the state of my application by clicking the save button.
-- You can reload the state of my application by clicking the load button.
+- You can view the panel that displays the expenses you have added on the left. This panel is scrollable.
+- You can add and remove expenses from your list of expenses by clicking on the respective button and following the prompt.
+- You can update existing expenses by hovering over the respective button and selecting one of the options in the dropdown menu. These options are renaming, changing category, changing cost, or ing the payment status of an expense.
+- A pie graph will appear on the right panel when you add at least one expense. The pie graph displays the cost of each category by percentage.
+- You can save your list of expenses by clicking the save button.
+- You can reload your list of expenses by clicking the load button.
