@@ -2,6 +2,10 @@ package ui;
 
 import model.Expense;
 import model.ExpenseList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,8 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Dimension;
 import java.awt.Color;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
@@ -29,10 +33,17 @@ public class ExpenseTrackerUI extends JFrame {
     private JPanel leftPanel;
     private JPanel rightPanel;
 
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/ExpenseList.json";
+
     private ExpenseList expenseList = new ExpenseList();
 
     // Referenced from AlarmSystem from CPSC 210 github
     public ExpenseTrackerUI() {
+        this.jsonWriter = new JsonWriter(JSON_STORE);
+        this.jsonReader = new JsonReader(JSON_STORE);
+
         setTitle("Expense Tracker");
         setSize(WIDTH, HEIGHT);
         setLayout(new BorderLayout());
@@ -525,7 +536,7 @@ public class ExpenseTrackerUI extends JFrame {
         
         @Override
         public void actionPerformed(ActionEvent evt) {
-            JOptionPane.showMessageDialog(null, "The total cost of expenses is $ " + expenseList.getTotalCost());
+            JOptionPane.showMessageDialog(null, "The total cost of expenses is $" + expenseList.getTotalCost());
         }
     }
 
@@ -538,6 +549,14 @@ public class ExpenseTrackerUI extends JFrame {
         
         @Override
         public void actionPerformed(ActionEvent evt) {
+            try {
+                jsonWriter.open();
+                jsonWriter.write(expenseList);
+                jsonWriter.close();
+                JOptionPane.showMessageDialog(null, "Saved expenseList to " + JSON_STORE);
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "Unable to write to file: " + JSON_STORE);
+            }
         }
     }
 
@@ -550,6 +569,32 @@ public class ExpenseTrackerUI extends JFrame {
         
         @Override
         public void actionPerformed(ActionEvent evt) {
+            try {
+                expenseList = jsonReader.read();
+                
+                for (int i = 0; i < expenseList.getTotalNumberOfExpenses(); i++) {
+                    Expense expense = expenseList.getListOfExpenses().get(i);
+                    tableModel.addRow(
+                        new Object[]{expense.getName(), 
+                        expense.getCategory(), 
+                        expense.getCost(), 
+                        expense.getPaymentStatus()});
+                }
+
+                Map<String, Double> totalCostPerCategory = new HashMap<>();
+                for (Expense next : expenseList.getListOfExpenses()) {
+                    totalCostPerCategory.put(next.getCategory(), next.getCost());
+                }
+
+                rightPanel.removeAll();
+                rightPanel.add(new PieGraph(totalCostPerCategory), BorderLayout.CENTER);
+                rightPanel.revalidate();
+                rightPanel.repaint();
+
+                JOptionPane.showMessageDialog(null, "Loaded expenseList from " + JSON_STORE);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Unable to read from file: " + JSON_STORE);
+            }
         }
     }
 
