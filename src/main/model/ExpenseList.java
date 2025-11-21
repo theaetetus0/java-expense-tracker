@@ -42,6 +42,26 @@ public class ExpenseList implements Writable {
         return listOfExpenseNames;
     }
 
+    // EFFECTS: returns total number of expenses
+    public int getTotalNumberOfExpenses() {
+        int total = 0;
+        for (@SuppressWarnings("unused") Expense expense : listOfExpenses) {
+            total++;
+        }
+        
+        return total;
+    }
+
+    // EFFECTS: returns total cost of expenses
+    public double getTotalCost() {
+        double total = 0;
+        for (Expense expense : listOfExpenses) {
+            total += expense.getCost();
+        }
+        
+        return total;
+    }
+
     // referenced from JsonSerializationDemo
     @Override
     public JSONObject toJson() {

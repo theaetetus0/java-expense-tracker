@@ -35,6 +35,8 @@ public class ExpenseListTest {
         testExpenseList.addExpense(testExpense2);
         assertEquals(2, testExpenseList.getListOfExpenses().size());
         assertEquals(testExpense2, testExpenseList.getListOfExpenses().get(1));
+        assertEquals(2, testExpenseList.getTotalNumberOfExpenses());
+        assertEquals(300.0, testExpenseList.getTotalCost());
     }
 
     @Test

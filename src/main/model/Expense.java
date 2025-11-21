@@ -1,6 +1,8 @@
 package model;
 
 import org.json.JSONObject;
+
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import persistence.Writable;
 
 // A class representing the an expense with a name and cost
@@ -79,5 +81,38 @@ public class Expense implements Writable {
         json.put("cost", this.cost);
         json.put("paymentStatus", this.paymentStatus);
         return json;
+    }
+
+    @ExcludeFromJacocoGeneratedReport
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((category == null) ? 0 : category.hashCode());
+        return result;
+    }
+
+    @ExcludeFromJacocoGeneratedReport
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Expense other = (Expense) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        if (category == null) {
+            if (other.category != null)
+                return false;
+        } else if (!category.equals(other.category))
+            return false;
+        return true;
     }
 }
