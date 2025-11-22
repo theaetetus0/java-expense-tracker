@@ -72,6 +72,7 @@ public class Expense implements Writable {
         return String.valueOf(paymentStatus) + ": " +  String.valueOf(cost) + ": " + category + ": " + name;
     }
 
+    // EFFECTS: Inserts expense name, category, cost, and payment status in JSON object
     // referenced from JsonSerializationDemo
     @Override
     public JSONObject toJson() {
@@ -84,6 +85,7 @@ public class Expense implements Writable {
     }
 
     @ExcludeFromJacocoGeneratedReport
+    // EFFECTS: Override hashCode()
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -94,6 +96,7 @@ public class Expense implements Writable {
     }
 
     @ExcludeFromJacocoGeneratedReport
+    // EFFECTS: Override equals()
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

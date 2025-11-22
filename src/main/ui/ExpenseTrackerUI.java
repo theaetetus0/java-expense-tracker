@@ -38,6 +38,7 @@ public class ExpenseTrackerUI extends JFrame {
 
     private ExpenseList expenseList = new ExpenseList();
 
+    // EFFECTS: Constructor to intialize JPanel on the top, left, and right
     // Referenced from AlarmSystem from CPSC 210 github
     public ExpenseTrackerUI() {
         this.jsonWriter = new JsonWriter(JSON_STORE);
@@ -69,7 +70,7 @@ public class ExpenseTrackerUI extends JFrame {
         setVisible(true);
     }
 
-    // Helper to centre main application window on desktop
+    // EFFECTS: Helper to centre main application window on desktop
     // Referenced from AlarmSystem from CPSC 210 github
     private void centreOnScreen() {
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -77,7 +78,7 @@ public class ExpenseTrackerUI extends JFrame {
         setLocation((width - getWidth()) / 2, (height - getHeight()) / 2);
     }
 
-    // Add menu bar
+    // EFFECTS: Add menu bar
     // Referenced from AlarmSystem from CPSC 210 github
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();
@@ -123,14 +124,14 @@ public class ExpenseTrackerUI extends JFrame {
         setJMenuBar(menuBar);
     }
 
-    // Set style for buttons
+    // EFFECTS: Set style for buttons
     private void setButtonStyle(JButton button) {
         button.setForeground(Color.BLACK);
         button.setBackground(Color.WHITE);
         button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
     }
 
-    // Set style for drop down menus
+    // EFFECTS: Set style for drop down menus
     private void setMenuStyle(JMenu menu) {
         menu.setForeground(Color.BLACK);
         menu.setBackground(Color.WHITE);
@@ -138,7 +139,7 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     /**
-     * Adds an item with given handler to the given menu
+     *  EFFECTS: Adds an item with given handler to the given menu
      * @param theMenu  menu to which new item is added
      * @param action   handler for new menu item
      * @param accelerator    keystroke accelerator for this menu item
@@ -150,11 +151,11 @@ public class ExpenseTrackerUI extends JFrame {
         theMenu.add(menuItem);
     }
 
-    // Represents action to be taken when user wants to add a new expense
+    // EFFECTS: Represents action to be taken when user wants to add a new expense
     @ExcludeFromJacocoGeneratedReport
     private class AddAction extends AbstractAction {
         AddAction() {
-            super("Add Expense");
+            super("Add New Expense");
         }
         
         @Override
@@ -179,6 +180,11 @@ public class ExpenseTrackerUI extends JFrame {
                 cost = Double.parseDouble(costInput);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Cost must be a number.");
+                return;
+            }
+
+            if (cost < 0) {
+                JOptionPane.showMessageDialog(null, "Cost must be >= 0.");
                 return;
             }
 
@@ -218,22 +224,21 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to remove an expense
+    // EFFECTS: Represents action to be taken when user wants to remove an expense
     @ExcludeFromJacocoGeneratedReport
     private class RemoveAction extends AbstractAction {
-        
         RemoveAction() {
-            super("Remove Expense");
+            super("Remove An Expense");
         }
         
         @Override
         public void actionPerformed(ActionEvent evt) {
-            String name = JOptionPane.showInputDialog("Enter expense name:");
+            String name = JOptionPane.showInputDialog("Enter existing expense name:");
             if (name == null || name.isBlank()) {
                 return;
             }
 
-            String category = JOptionPane.showInputDialog("Enter category:");
+            String category = JOptionPane.showInputDialog("Enter existing expense category:");
             if (category == null || category.isBlank()) {
                 return;
             }
@@ -273,22 +278,21 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to rename an expense
+    // EFFECTS: Represents action to be taken when user wants to rename an expense
     @ExcludeFromJacocoGeneratedReport
     private class RenameAction extends AbstractAction {
-        
         RenameAction() {
             super("Rename Expense");
         }
         
         @Override
         public void actionPerformed(ActionEvent evt) {
-            String name = JOptionPane.showInputDialog("Enter expense name:");
+            String name = JOptionPane.showInputDialog("Enter existing expense name:");
             if (name == null || name.isBlank()) {
                 return;
             }
 
-            String category = JOptionPane.showInputDialog("Enter category:");
+            String category = JOptionPane.showInputDialog("Enter existing expense category:");
             if (category == null || category.isBlank()) {
                 return;
             }
@@ -332,22 +336,21 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to change expense category an expense
+    // EFFECTS: Represents action to be taken when user wants to change expense category an expense
     @ExcludeFromJacocoGeneratedReport
     private class ChangeCategoryAction extends AbstractAction {
-        
         ChangeCategoryAction() {
             super("Change Expense Category");
         }
         
         @Override
         public void actionPerformed(ActionEvent evt) {
-            String name = JOptionPane.showInputDialog("Enter expense name:");
+            String name = JOptionPane.showInputDialog("Enter existing expense name:");
             if (name == null || name.isBlank()) {
                 return;
             }
 
-            String category = JOptionPane.showInputDialog("Enter category:");
+            String category = JOptionPane.showInputDialog("Enter existing expense category:");
             if (category == null || category.isBlank()) {
                 return;
             }
@@ -391,7 +394,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to change cost an expense
+    // EFFECTS: Represents action to be taken when user wants to change cost an expense
     @ExcludeFromJacocoGeneratedReport
     private class ChangeCostAction extends AbstractAction {
         ChangeCostAction() {
@@ -400,12 +403,12 @@ public class ExpenseTrackerUI extends JFrame {
         
         @Override
         public void actionPerformed(ActionEvent evt) {
-            String name = JOptionPane.showInputDialog("Enter expense name:");
+            String name = JOptionPane.showInputDialog("Enter existing expense name:");
             if (name == null || name.isBlank()) {
                 return;
             }
 
-            String category = JOptionPane.showInputDialog("Enter category:");
+            String category = JOptionPane.showInputDialog("Enter existing expense category:");
             if (category == null || category.isBlank()) {
                 return;
             }
@@ -420,6 +423,11 @@ public class ExpenseTrackerUI extends JFrame {
                 newCost = Double.parseDouble(newCostInput);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Cost must be a number.");
+                return;
+            }
+
+            if (newCost < 0) {
+                JOptionPane.showMessageDialog(null, "Cost must be >= 0.");
                 return;
             }
 
@@ -457,7 +465,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to change payment status an expense
+    // EFFECTS: Represents action to be taken when user wants to change payment status an expense
     @ExcludeFromJacocoGeneratedReport
     private class ChangePaymentStatusAction extends AbstractAction {
         ChangePaymentStatusAction() {
@@ -466,12 +474,12 @@ public class ExpenseTrackerUI extends JFrame {
         
         @Override
         public void actionPerformed(ActionEvent evt) {
-            String name = JOptionPane.showInputDialog("Enter expense name:");
+            String name = JOptionPane.showInputDialog("Enter existing expense name:");
             if (name == null || name.isBlank()) {
                 return;
             }
 
-            String category = JOptionPane.showInputDialog("Enter category:");
+            String category = JOptionPane.showInputDialog("Enter existing expense category:");
             if (category == null || category.isBlank()) {
                 return;
             }
@@ -479,7 +487,7 @@ public class ExpenseTrackerUI extends JFrame {
             int newPaymentStatusInput = JOptionPane.showConfirmDialog(
                     null, 
                     "Paid? (Yes = Paid, No = Unpaid)",
-                    "Payment Status", JOptionPane.YES_NO_OPTION);
+                    "New Payment Status", JOptionPane.YES_NO_OPTION);
 
             boolean newPaymentStatus = (newPaymentStatusInput == JOptionPane.YES_OPTION);
 
@@ -517,7 +525,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to view total number of expenses
+    // EFFECTS: Represents action to be taken when user wants to view total number of expenses
     @ExcludeFromJacocoGeneratedReport
     private class NumberOfExpensesAction extends AbstractAction {
         NumberOfExpensesAction() {
@@ -531,7 +539,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to view total cost on an expense
+    // EFFECTS: Represents action to be taken when user wants to view total cost on an expense
     @ExcludeFromJacocoGeneratedReport
     private class TotalCostAction extends AbstractAction {
         TotalCostAction() {
@@ -544,7 +552,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to save list of expenses
+    // EFFECTS: Represents action to be taken when user wants to save list of expenses
     @ExcludeFromJacocoGeneratedReport
     private class SaveAction extends AbstractAction {
         SaveAction() {
@@ -564,7 +572,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // Represents action to be taken when user wants to load list of expenses
+    // EFFECTS: Represents action to be taken when user wants to load list of expenses
     @ExcludeFromJacocoGeneratedReport
     private class LoadAction extends AbstractAction {
         LoadAction() {
@@ -579,10 +587,10 @@ public class ExpenseTrackerUI extends JFrame {
                 for (int i = 0; i < expenseList.getTotalNumberOfExpenses(); i++) {
                     Expense expense = expenseList.getListOfExpenses().get(i);
                     tableModel.addRow(
-                        new Object[]{expense.getName(), 
-                        expense.getCategory(), 
-                        expense.getCost(), 
-                        expense.getPaymentStatus()});
+                            new Object[]{expense.getName(), 
+                            expense.getCategory(), 
+                            expense.getCost(), 
+                            expense.getPaymentStatus()});
                 }
 
                 Map<String, Double> totalCostPerCategory = new HashMap<>();
@@ -602,7 +610,7 @@ public class ExpenseTrackerUI extends JFrame {
         }
     }
 
-    // starts the 
+    // EFFECTS: starts the Expense Tracker UI
     // Referenced from AlarmSystem from CPSC 210 github
     public static void main(String[] args) {
         new ExpenseTrackerUI();

@@ -19,13 +19,13 @@ public class PieGraph extends JPanel {
     private ArrayList<Color> colors = new ArrayList<>(
             Arrays.asList(Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE));
     
-    // Construct a pie graph with data and dimension
+    // EFFECTS: Construct a pie graph with data and dimension
     public PieGraph(Map<String, Double> data) {
         this.costPerCategory = data;
         setPreferredSize(new Dimension(500, 500));
     }
 
-    // Draw pie graph with legend
+    // EFFECTS: Draw pie graph with legend
     @Override
     protected void paintComponent(Graphics graph) {
         super.paintComponent(graph);

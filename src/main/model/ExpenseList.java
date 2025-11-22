@@ -63,6 +63,7 @@ public class ExpenseList implements Writable {
     }
 
     // referenced from JsonSerializationDemo
+    // EFFECTS: Inserts expenses to JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -78,7 +79,6 @@ public class ExpenseList implements Writable {
         for (Expense next : listOfExpenses) {
             jsonArray.put(next.toJson());
         }
-
         return jsonArray;
     }
 }
