@@ -151,8 +151,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to add a new expense
+    @ExcludeFromJacocoGeneratedReport
     private class AddAction extends AbstractAction {
-        
         AddAction() {
             super("Add Expense");
         }
@@ -219,6 +219,7 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to remove an expense
+    @ExcludeFromJacocoGeneratedReport
     private class RemoveAction extends AbstractAction {
         
         RemoveAction() {
@@ -273,6 +274,7 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to rename an expense
+    @ExcludeFromJacocoGeneratedReport
     private class RenameAction extends AbstractAction {
         
         RenameAction() {
@@ -331,6 +333,7 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to change expense category an expense
+    @ExcludeFromJacocoGeneratedReport
     private class ChangeCategoryAction extends AbstractAction {
         
         ChangeCategoryAction() {
@@ -389,8 +392,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to change cost an expense
+    @ExcludeFromJacocoGeneratedReport
     private class ChangeCostAction extends AbstractAction {
-        
         ChangeCostAction() {
             super("Change Cost");
         }
@@ -455,8 +458,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to change payment status an expense
+    @ExcludeFromJacocoGeneratedReport
     private class ChangePaymentStatusAction extends AbstractAction {
-        
         ChangePaymentStatusAction() {
             super("Change Payment Status");
         }
@@ -515,8 +518,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to view total number of expenses
+    @ExcludeFromJacocoGeneratedReport
     private class NumberOfExpensesAction extends AbstractAction {
-        
         NumberOfExpensesAction() {
             super("Total Number Of Expenses");
         }
@@ -529,8 +532,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to view total cost on an expense
+    @ExcludeFromJacocoGeneratedReport
     private class TotalCostAction extends AbstractAction {
-        
         TotalCostAction() {
             super("Total Cost Of Expenses");
         }
@@ -542,8 +545,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to save list of expenses
+    @ExcludeFromJacocoGeneratedReport
     private class SaveAction extends AbstractAction {
-        
         SaveAction() {
             super("Save Expenses");
         }
@@ -562,8 +565,8 @@ public class ExpenseTrackerUI extends JFrame {
     }
 
     // Represents action to be taken when user wants to load list of expenses
+    @ExcludeFromJacocoGeneratedReport
     private class LoadAction extends AbstractAction {
-
         LoadAction() {
             super("Load Expenses");
         }
