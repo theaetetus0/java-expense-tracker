@@ -582,6 +582,7 @@ public class ExpenseTrackerUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent evt) {
             try {
+                tableModel.setRowCount(0);
                 expenseList = jsonReader.read();
                 
                 for (int i = 0; i < expenseList.getTotalNumberOfExpenses(); i++) {
