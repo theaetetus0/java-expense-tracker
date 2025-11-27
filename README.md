@@ -47,3 +47,9 @@ with their respective names, categories, cost, and payment status.
 - A pie graph will appear on the right panel when you add at least one expense. The pie graph displays the cost of each category by percentage.
 - You can save your list of expenses by clicking the save button.
 - You can reload your list of expenses by clicking the load button.
+
+## Phase 4: Task 2
+- representative example
+
+## Phase 4: Task 2
+- UML diagram
