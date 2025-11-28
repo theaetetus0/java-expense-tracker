@@ -1,11 +1,16 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Expense;
 import model.ExpenseList;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -66,8 +71,23 @@ public class ExpenseTrackerUI extends JFrame {
         add(rightPanel, BorderLayout.CENTER);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(new EventLogPrinter());
+
         centreOnScreen();
         setVisible(true);
+    }
+
+    @ExcludeFromJacocoGeneratedReport
+    public class EventLogPrinter extends WindowAdapter {
+
+        @Override
+        public void windowClosing(WindowEvent e) {
+            for (Event event : EventLog.getInstance()) {
+                System.out.println("");
+                System.out.println(event.toString());
+            }
+            System.out.println("");
+        }
     }
 
     // EFFECTS: Helper to centre main application window on desktop
@@ -260,7 +280,7 @@ public class ExpenseTrackerUI extends JFrame {
 
             for (int i = 0; i < tableModel.getRowCount(); i++) {
                 if (tableModel.getValueAt(i, 0).equals(expense.getName()) 
-                        && tableModel.getValueAt(i, 0).equals(expense.getCategory())) {
+                        && tableModel.getValueAt(i, 1).equals(expense.getCategory())) {
                     tableModel.removeRow(i);
                     break;
                 }
@@ -585,7 +605,7 @@ public class ExpenseTrackerUI extends JFrame {
                 tableModel.setRowCount(0);
                 expenseList = jsonReader.read();
                 
-                for (int i = 0; i < expenseList.getTotalNumberOfExpenses(); i++) {
+                for (int i = 0; i < expenseList.getListOfExpenses().size(); i++) {
                     Expense expense = expenseList.getListOfExpenses().get(i);
                     tableModel.addRow(
                             new Object[]{expense.getName(), 

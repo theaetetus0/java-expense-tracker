@@ -1,7 +1,9 @@
 package persistence;
 
+import model.EventLog;
 import model.Expense;
 import model.ExpenseList;
+import model.Event;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -43,7 +45,17 @@ public class JsonReader {
     // EFFECTS: parses expense list from JSON object and returns it
     private ExpenseList parseExpenseList(JSONObject jsonObject) {
         ExpenseList el = new ExpenseList();
+
+        EventLog.getInstance().logEvent(
+            new Event("Loading expense list")
+        );
+
         addExpenses(el, jsonObject);
+
+        EventLog.getInstance().logEvent(
+            new Event("Finished loading expense list")
+        );
+
         return el;
     }
 

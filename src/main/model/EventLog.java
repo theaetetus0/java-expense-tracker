@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
-@ExcludeFromJacocoGeneratedReport
 
 /**
  * Represents a log of alarm system events.
@@ -13,6 +12,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
  * one EventLog in the system and that the system has global access
  * to the single instance of the EventLog.
  */
+@ExcludeFromJacocoGeneratedReport
 public class EventLog implements Iterable<Event> {
     /** the only EventLog in the system (Singleton Design Pattern) */
     private static EventLog theLog;

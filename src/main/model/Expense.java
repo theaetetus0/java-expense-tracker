@@ -25,24 +25,39 @@ public class Expense implements Writable {
     // MODIFIES: this
     // EFFECTS: set name of an expense
     public void setName(String name) {
+        EventLog.getInstance().logEvent(
+            new Event("Renamed Expense, Previous Name: " + this.name + ", New Name: " + name)
+        );
         this.name = name;
     }
 
     // MODIFIES: this
     // EFFECTS: set category of an expense
     public void setCategory(String category) {
+        EventLog.getInstance().logEvent(
+            new Event("Changed Expense Category, Name: " + this.name 
+                    + ", Previous Category: " + this.category + ", New Category: " + category)
+        );
         this.category = category;
     }
 
     // MODIFIES: this
     // EFFECTS: set cost of an expense
     public void setCost(Double cost) {
+        EventLog.getInstance().logEvent(
+            new Event("Changed Expense Cost, Name: " + this.name 
+                    + ", Previous Cost: " + this.cost + ", New Cost: " + cost)
+        );
         this.cost = cost;
     }
 
     // MODIFIES: this
     // EFFECTS: set payment status
     public void setPaymentStatus(Boolean paymentStatus) {
+        EventLog.getInstance().logEvent(
+            new Event("Changed Payment Status, Name: " + this.name + ", Previous Payment Status: " 
+                    + this.paymentStatus + ", New Payment Status: " + paymentStatus)
+        );
         this.paymentStatus = paymentStatus;
     }
 

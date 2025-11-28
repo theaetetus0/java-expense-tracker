@@ -4,10 +4,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
-@ExcludeFromJacocoGeneratedReport
 
 // Represents an alarm system event.
 // Referenced from AlarmSystem from CPSC 210 github
+@ExcludeFromJacocoGeneratedReport
 public class Event {
     private static final int HASH_CONSTANT = 13;
     private Date dateLogged;
