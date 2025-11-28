@@ -51,5 +51,45 @@ with their respective names, categories, cost, and payment status.
 ## Phase 4: Task 2
 - representative example
 
+Fri Nov 28 13:53:44 PST 2025
+Event log cleared.
+
+Fri Nov 28 13:53:44 PST 2025
+New ExpenseList Created
+
+Fri Nov 28 13:53:44 PST 2025
+Loading expense list
+
+Fri Nov 28 13:53:44 PST 2025
+Added expense, Name: Rock, Category: Pet, Cost: 8.0, Payment Status: false
+
+Fri Nov 28 13:53:44 PST 2025
+Added expense, Name: McDonalds, Category: Food, Cost: 10.0, Payment Status: true
+
+Fri Nov 28 13:53:44 PST 2025
+Added expense, Name: Swimming Pass, Category: Recreation, Cost: 6.0, Payment Status: true
+
+Fri Nov 28 13:53:44 PST 2025
+Finished loading expense list
+
+Fri Nov 28 13:53:56 PST 2025
+Removed expense, Name: Swimming Pass, Category: Recreation
+
+Fri Nov 28 13:54:07 PST 2025
+Changed Expense Cost, Name: Rock, Previous Cost: 8.0, New Cost: 10.0
+
+Fri Nov 28 13:54:19 PST 2025
+Added expense, Name: Shirt, Category: Clothes, Cost: 5.0, Payment Status: true
+
+Fri Nov 28 13:54:22 PST 2025
+Requested total number of expenses: 3
+
+Fri Nov 28 13:54:26 PST 2025
+Requested total cost of expenses: $25.0
+
+Fri Nov 28 13:54:32 PST 2025
+Saved expense list
+
+
 ## Phase 4: Task 2
 - UML diagram
