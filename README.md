@@ -49,7 +49,7 @@ with their respective names, categories, cost, and payment status.
 - You can reload your list of expenses by clicking the load button.
 
 ## Phase 4: Task 2
-- representative example
+- A representative example for event logging below
 
 Fri Nov 28 13:53:44 PST 2025
 Event log cleared.
