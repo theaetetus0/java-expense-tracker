@@ -91,5 +91,7 @@ Fri Nov 28 13:54:32 PST 2025
 Saved expense list
 
 
-## Phase 4: Task 2
-- UML diagram
+## Phase 4: Task 3
+- UML Diagram
+
+- Refactoring: If I had more time to work on the project, I would refactor my implementation of the ExpenseTrackerGUI's dependency on ExpenseList. In its present state, ExpenseList has a few methods that either returns some sort of List or a value after iterating through the listOfExpenses. These methods have some redudancy and it would improve the cleanliness of the code if I were to modify these methods to be more abstract and take in some parameter, say return all the names of the expenses in the listOfExpenses. Moreover, I could also create a class in the ui specifically for the different panels of the ExpenseTrackerGUI. Since I have many buttons with different functionality, a panel for a table containing expenses, and a panel for a PieGraph, I could put these panels into their own class. This could potentially decrease coupling and increase cohension, increase readability, and also increase the testability of the code. By taking these steps to refactor the code, I believe I could further improve the design philosophy and structure of the program.

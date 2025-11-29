@@ -28,7 +28,7 @@ import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // GUI for Expense Tracker Application
 @ExcludeFromJacocoGeneratedReport
-public class ExpenseTrackerUI extends JFrame {
+public class ExpenseTrackerGUI extends JFrame {
     private static final int WIDTH = 1050;
     private static final int HEIGHT = 600;
 
@@ -45,7 +45,7 @@ public class ExpenseTrackerUI extends JFrame {
 
     // EFFECTS: Constructor to intialize JPanel on the top, left, and right
     // Referenced from AlarmSystem from CPSC 210 github
-    public ExpenseTrackerUI() {
+    public ExpenseTrackerGUI() {
         this.jsonWriter = new JsonWriter(JSON_STORE);
         this.jsonReader = new JsonReader(JSON_STORE);
 
@@ -634,6 +634,6 @@ public class ExpenseTrackerUI extends JFrame {
     // EFFECTS: starts the Expense Tracker UI
     // Referenced from AlarmSystem from CPSC 210 github
     public static void main(String[] args) {
-        new ExpenseTrackerUI();
+        new ExpenseTrackerGUI();
     }
 }
