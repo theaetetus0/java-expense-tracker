@@ -51,6 +51,7 @@ with their respective names, categories, cost, and payment status.
 ## Phase 4: Task 2
 - A representative example for event logging below
 
+```text
 Fri Nov 28 13:53:44 PST 2025
 Event log cleared.
 
@@ -89,7 +90,7 @@ Requested total cost of expenses: $25.0
 
 Fri Nov 28 13:54:32 PST 2025
 Saved expense list
-
+```
 
 ## Phase 4: Task 3
 - UML Diagram
